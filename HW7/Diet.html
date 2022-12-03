@@ -13227,7 +13227,9 @@ $$ \begin{aligned}
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">optimize!</span><span class="p">(</span><span class="n">model_food</span><span class="p">);</span>
-<span class="nd">@show</span> <span class="n">solution_summary</span><span class="p">(</span><span class="n">model_food</span><span class="p">)</span>
+<span class="nd">@show</span> <span class="n">solution_summary</span><span class="p">(</span><span class="n">model_food</span><span class="p">);</span>
+
+<span class="nd">@show</span> <span class="n">objective_value</span><span class="p">(</span><span class="n">model_food</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13244,20 +13246,10 @@ $$ \begin{aligned}
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Presolving model
-4 rows, 4 cols, 15 nonzeros
-4 rows, 2 cols, 8 nonzeros
-Presolve : Reductions: rows 4(-0); columns 2(-3); elements 8(-10)
-Solving the presolved LP
-Using EKK dual simplex solver - serial
-  Iteration        Objective     Infeasibilities num(sum)
-          0     0.0000000000e+00 Pr: 4(975) 0s
-          3     2.3177549195e+00 Pr: 0(0) 0s
-Solving the original LP from the solution after postsolve
+<pre>Solving LP without presolve or with basis
 Model   status      : Optimal
-Simplex   iterations: 3
 Objective value     :  2.3177549195e+00
-HiGHS run time      :          0.01
+HiGHS run time      :          0.00
 solution_summary(model_food) = * Solver : HiGHS
 
 * Status
@@ -13274,11 +13266,12 @@ solution_summary(model_food) = * Solver : HiGHS
   Dual objective value : 2.31775e+00
 
 * Work counters
-  Solve time (sec)   : 7.62193e-03
-  Simplex iterations : 3
+  Solve time (sec)   : 2.08730e-03
+  Simplex iterations : 0
   Barrier iterations : 0
   Node count         : -1
 
+objective_value(model_food) = 2.3177549194991056
 </pre>
 </div>
 </div>
@@ -13291,27 +13284,7 @@ solution_summary(model_food) = * Solver : HiGHS
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>* Solver : HiGHS
-
-* Status
-  Termination status : OPTIMAL
-  Primal status      : FEASIBLE_POINT
-  Dual status        : FEASIBLE_POINT
-  Message from the solver:
-  &#34;kHighsModelStatusOptimal&#34;
-
-* Candidate solution
-  Objective value      : 2.31775e+00
-  Objective bound      : 0.00000e+00
-  Relative gap         : Inf
-  Dual objective value : 2.31775e+00
-
-* Work counters
-  Solve time (sec)   : 7.62193e-03
-  Simplex iterations : 3
-  Barrier iterations : 0
-  Node count         : -1
-</pre>
+<pre>2.3177549194991056</pre>
 </div>
 
 </div>
